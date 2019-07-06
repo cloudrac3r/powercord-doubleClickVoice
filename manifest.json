@@ -1,0 +1,7 @@
+{
+  "name": "Double Click Voice",
+  "version": "1.0.0",
+  "description": "Require double clicking a voice channel to enter it.",
+  "author": "Cadence#3263",
+  "license": "MIT"
+}
