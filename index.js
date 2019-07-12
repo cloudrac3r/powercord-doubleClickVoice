@@ -19,10 +19,12 @@ module.exports = class DoubleClickVoice extends Plugin {
 	async _patchChannelList() {
 		const ChannelItem = await getModuleByDisplayName("ChannelItem")
 		inject("cadence-doubleclickvoice-channelitem", ChannelItem.prototype, "render", function(_, res) {
-			let channelType = res.props.children[1]._owner.pendingProps.channel.type
-			if (channelType == 2) {
-				res.props.onDoubleClick = res.props.onClick
-				res.props.onClick = undefined
+			if (res.props.children[1]._owner) {
+				let channelType = res.props.children[1]._owner.pendingProps.channel.type
+				if (channelType == 2) {
+					res.props.onDoubleClick = res.props.onClick
+					res.props.onClick = undefined
+				}
 			}
 			return res
 		})
